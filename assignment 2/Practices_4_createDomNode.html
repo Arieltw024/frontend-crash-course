@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Example HTML</title>
+</head>
+<body>
+  <div id="container">
+    <!-- Elements will be appended here -->
+  </div>
+
+  <script>
+    // 1.Append a <p> tag with "My first DOM created." into the container
+    let container = document.getElementById("container");
+    let pTag = document.createElement("p");
+    pTag.textContent = "My first DOM created.";
+    container.appendChild(pTag);
+
+    // 2.Append a <ul> tag
+    let ulTag = document.createElement("ul");
+    container.appendChild(ulTag);
+
+    // 3.Append 3 <li> tags into the <ul> tag with items: red, blue, yellow using a for loop
+    let colors = ["red", "blue", "yellow"];
+    for (let i = 0; i < colors.length; i++) {
+      let liTag = document.createElement("li");
+      liTag.textContent = colors[i];
+      ulTag.appendChild(liTag);
+    }
+  </script>
+</body>
+</html>
