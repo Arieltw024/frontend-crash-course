@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Dog Image</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div>
+        <h1>Random Dog Image</h1>
+        <button onclick="getRandomDog()">Get Random Dog</button>
+        <br><br>
+        <img id="dogImage" src="" alt="Random Dog">
+    </div>
+
+    <script>
+        function getRandomDog() {
+            $.ajax({
+                url: "https://dog.ceo/api/breeds/image/random",
+                method: "GET",
+                success: function(response) {
+                    var imageUrl = response.message;
+                    $("#dogImage").attr("src", imageUrl);
+                },
+                error: function() {
+                    alert("Failed to fetch random dog image.");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

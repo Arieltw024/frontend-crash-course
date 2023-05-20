@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Activity Suggestion and Age Prediction</title>
+</head>
+<body>
+  <h1>Activity Suggestion and Age Prediction</h1>
+
+  <h2>Random Activity Suggestion</h2>
+  <button onclick="generateRandomActivity()">Generate Random Activity</button>
+  <p id="randomActivity"></p>
+
+  <h2>Predict Age of a Person's Name</h2>
+  <input type="text" id="nameInput" placeholder="Enter name">
+  <button onclick="predictAge()">Predict Age</button>
+  <p id="predictedAge"></p>
+
+  <script>
+    // Function to generate a random activity suggestion
+    function generateRandomActivity() {
+      // Replace this with your own list of activities
+      const activities = [
+        "Go for a hike",
+        "Visit a museum",
+        "Watch a movie",
+        "Try a new recipe",
+        "Read a book",
+        "Take a yoga class",
+        "Go for a bike ride"
+      ];
+
+      // Get a random activity from the list
+      const randomIndex = Math.floor(Math.random() * activities.length);
+      const randomActivity = activities[randomIndex];
+
+      // Display the random activity
+      const randomActivityElement = document.getElementById("randomActivity");
+      randomActivityElement.innerText = randomActivity;
+    }
+
+    // Function to predict the age of a person's name
+    function predictAge() {
+      // Get the name entered by the user
+      const nameInput = document.getElementById("nameInput");
+      const name = nameInput.value;
+
+      // Replace this with your own logic to predict age based on the name
+      // For simplicity, let's assume the age is always 30
+      const predictedAge = 25;
+
+      // Display the predicted age
+      const predictedAgeElement = document.getElementById("predictedAge");
+      predictedAgeElement.innerText = `The predicted age for ${name} is ${predictedAge} years old.`;
+    }
+  </script>
+</body>
+</html>
