@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter and Todo List</title>
+    <link href="css/Practices_1_style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div>
+        <h1>Counter APP</h1>
+        <div class="counter-container">
+            <button class="counter-btn" data-action="decrement">-</button>
+            <span id="count">0</span>
+            <button class="counter-btn" data-action="increment">+</button>
+        </div>
+        <button class="counter-btn" data-action="reset">Reset</button>
+    </div>
+    <br>
+    <div>
+        <h1>Todo List APP</h1>
+        <input type="text" id="todoInput" placeholder="Enter a task">
+        <button onclick="addTodo()">Add</button>
+        <ul id="todoList"></ul>
+    </div>
+
+    <script>
+        let count = 0;
+        const counterButtons = document.querySelectorAll(".counter-btn");
+        const countDisplay = document.getElementById("count");
+
+        counterButtons.forEach(button => {
+            button.addEventListener("click", handleCounterClick);
+        });
+
+        function handleCounterClick(event) {
+            const action = event.target.dataset.action;
+            if (action === "increment") {
+                increment();
+            } else if (action === "decrement") {
+                decrement();
+            } else if (action === "reset") {
+                reset();
+            }
+        }
+
+        function increment() {
+            count++;
+            updateCount();
+        }
+
+        function decrement() {
+            if (count > 0) {
+                count--;
+                updateCount();
+            }
+        }
+
+        function reset() {
+            count = 0;
+            updateCount();
+        }
+
+        function updateCount() {
+            countDisplay.textContent = count;
+        }
+
+        function addTodo() {
+            const todoInput = document.getElementById("todoInput");
+            const todoList = document.getElementById("todoList");
+
+            if (todoInput.value.trim() !== "") {
+                const todoItem = document.createElement("li");
+                todoItem.textContent = todoInput.value;
+                todoList.appendChild(todoItem);
+                todoInput.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
